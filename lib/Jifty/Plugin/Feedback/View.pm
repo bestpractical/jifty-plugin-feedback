@@ -18,14 +18,15 @@ template 'feedback/request_feedback' => sub {
     div {
         attr { id => 'feedback_wrapper' };
 
-        h3 { _('Send us feedback!') } p {
-            _("Tell us what's good, what's bad, and what else you want %1 to do!",
-	      Jifty->config->framework('ApplicationName'));
+        h3 { _('Send us feedback!') }
+        p {
+            _("Tell us what's good, what's bad, and what else you want %1 to do!", Jifty->config->framework('ApplicationName'));
         };
+
         render_region(
-            'feedback',
+            name     => 'feedback',
             path     => "/feedback/region",
-            defaults => {}
+            defaults => {},
         );
     };
 };
@@ -37,12 +38,13 @@ template 'feedback/region' => sub {
         moniker => "feedback"
     );
 
-    if ( Jifty->web->response->result("feedback")) { 
-    span {
-        attr { id => 'feedback-result' };
-        Jifty->web->response->result("feedback")->{'message'};
-    };
-    };
+    if ( Jifty->web->response->result("feedback")) {
+        span {
+            attr { id => 'feedback-result' };
+            Jifty->web->response->result("feedback")->{'message'};
+        }
+    }
+
     div {
         attr { id => 'feedback' };
 
@@ -55,7 +57,8 @@ template 'feedback/region' => sub {
                     refresh_self => 1
                 }
             );
-            }
         }
+    }
 };
+
 1;

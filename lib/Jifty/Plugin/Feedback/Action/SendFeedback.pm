@@ -26,16 +26,15 @@ The fields for C<SendFeedback> are:
 =cut
 
 sub arguments {
-        {
-            content => {
-                    label   => '',
-                    render_as => 'Textarea',
-                    rows => 5,
-                    cols => 60,
-                    sticky => 0
-            },
-        }
-
+    return {
+        content => {
+            label     => '',
+            render_as => 'Textarea',
+            rows      => 5,
+            cols      => 60,
+            sticky    => 0,
+        },
+    };
 }
 
 =head2 take_action
