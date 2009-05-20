@@ -43,5 +43,17 @@ sub init {
     $self->to($opt{'to'});
 }
 
+=head1 AUTHOR
+
+Jesse Vincent, C<jesse@bestpractical.com>
+
+=head1 LICENSE
+
+This plugin is copyright 2007-2009 Best Practical Solutions, LLC.
+
+This plugin is distributed under the same terms as Perl itself.
+
+=cut
+
 1;
 
